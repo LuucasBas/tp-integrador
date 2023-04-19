@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!--Iconos de ICONS8-->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!--jsPDF-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!--Estilos-->
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/estilos-reserva/reserva.css">
+    <!--Api mapa-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="../js/api.js"></script>
+    <title>Página de Reserva</title>
+  </head>
+
+  <body>
+    <!--Inicio Menu-->
+    <header>
+      <div class="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary nav-menu">
+          
+          <div class="container-fluid">
+            
+            <div class="logo-principal">
+              <img src="../img/logo.png" alt="logotipo" class="logotipo">
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="titulo d-none d-xl-block">
+              <p><i>•~~• Harmony Residence •~~•</i></p>
+            </div>
+            
+            <div class="collapse navbar-collapse nav-menu__items" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html#confort">Habitaciones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../indexAboutUs.html">Nuestro Equipo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../paginas/contacto.html">Contacto</a>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+
+        </nav>
+      </div>
+    </header>
+    <!--Fin Menu-->
+
+    <!--Inicio Fondo Top-->
+    <div class="fondo-top__img">
+      <h1 class="h1-reserva">Reserva</h1>
+    </div>
+    <!--Fin Fondo Top-->
+
+    <!--Inicio Formulario de reserva-->
+    <div class="formulario-wizar">
+      <form action="" method="post" autocomplete="off" class="form-registro">
+        
+        <h2>Registro</h2>
+        
+        <div>
+          <span class="step" id="step-1">1</span>
+          <span class="step" id="step-2">2</span>
+          <span class="step" id="step-3">3</span>
+          <span class="step" id="step-4">4</span>
+          <span class="step" id="step-5">5</span>
+        </div>
+
+        <div class="tab" id="tab-1">
+          <p>Datos del Cliente</p>
+          
+          <input type="text" placeholder="Nombre" name="nombre" id="nombre" class="form-control" for="colFormLabelSm" data-bs-toggle="mensaje" title="Solo se puede ingresar letras sin espacios." data-bs-custom-class="custom-tooltip">
+          <input type="text" placeholder="Apellido" name="apellido" id="apellido" class="form-control"  data-bs-toggle="mensaje" title="Solo se puede ingresar letras sin espacios."  data-bs-custom-class="custom-tooltip">
+
+          <div class="contendor-botton">
+            <div class="btn btn-warning" onclick="run(1,2);">Siguiente</div>
+          </div>
+        </div>
+
+        <div class="tab" id="tab-2">
+          <p>Datos de contacto</p>
+          
+          <input type="email" placeholder="Email" id="correo" class="form-control" data-bs-toggle="mensaje" title="Nesecita un @ y un .com" data-bs-custom-class="custom-tooltip">
+          <input type="number" placeholder="Teléfono" name="telefono" id="telefono" class="form-control" data-bs-toggle="mensaje" title="Solo se puede ingresar números" data-bs-custom-class="custom-tooltip">
+          
+          <div class="contendor-botton">
+            <div class="btn btn-warning" onclick="run(2,1);">Anterior</div>
+            <div class="btn btn-warning" onclick="run(2,3);">Siguiente</div>
+          </div>
+        </div>
+
+        <div class="tab" id="tab-3">
+          <p>Habitaciones</p>
+          
+          <select name="habitaciones" id="habitaciones" class="habitaciones form-select"  data-bs-toggle="mensaje" title="Es necesario selecionar una habitacion." data-bs-custom-class="custom-tooltip">
+            <option value="0">Seleccione</option>
+            <option value="Habitacion Premium Deluxe">Habitacion Premium Deluxe</option>
+            <option value="Habitacion Premium">Habitacion Premium</option>
+            <option value="Habitacion Basica Deluxe">Habitacion Basica Deluxe</option>
+            <option value="Habitacion Basica">Habitacion Basica</option>
+          </select>
+
+          <div class="contendor-botton">
+            <div class="btn btn-warning" onclick="run(3,2);">Anterior</div>
+            <div class="btn btn-warning" onclick="run(3,4);">Siguiente</div>
+          </div>
+        </div>
+
+        <div class="tab" id="tab-4">
+          <p>Fecha de reserva</p>
+          
+          <p><strong>Desde:</strong></p>
+          <input type="date" id="fecha" class="form-control"  data-bs-toggle="mensaje" title="Ingresar una fecha es obligatorio." data-bs-custom-class="custom-tooltip">
+          <br>
+          <p><strong>Hasta:</strong></p>
+          <input type="date" id="fechaHasta" class="form-control"  data-bs-toggle="mensaje" title="Ingresar una fecha es obligatorio, tiene que ser menor a la fecha anterior." data-bs-custom-class="custom-tooltip">
+
+          <div class="contendor-botton">
+            <div class="btn btn-warning" onclick="run(4,3);">Anterior</div>
+            <div class="btn btn-warning" onclick="run(4,5);">Siguiente</div>
+          </div>
+        </div>
+
+        <div class="tab" id="tab-5">
+          <p>Cuantos Adultos y Niños</p>
+          
+          <input type="number" placeholder="Cuantos adultos" name="adulto" id="adulto" class="form-control"  data-bs-toggle="mensaje" title="Solo se puede ingresar números, y minimo 1 adulto" data-bs-custom-class="custom-tooltip">
+          <input type="number" placeholder="Cuantos niños" name="ninio" id="ninio" class="form-control"  data-bs-toggle="mensaje" title="Solo se puede ingresar números" data-bs-custom-class="custom-tooltip">
+
+          <div class="contendor-botton">
+            <div class="btn btn-warning" onclick="run(5,4);">Anterior</div>
+            <div class="btn btn-warning" onclick="run(5,6);">Siguiente</div>
+          </div>
+        </div>
+
+        <div class="tab" id="tab-6">
+          <p>Confirmación</p>
+          <p>Nombre:</p>
+          <input type="text" placeholder="" name="" id="NOMBRE-m" class="form-control" disabled>
+          <p>Apellido:</p>
+          <input type="text" placeholder="" name="" id="Apellido-m" class="form-control" disabled>
+          <p>Correo:</p>
+          <input type="text" placeholder="" name="" id="CORREO-m" class="form-control" disabled>
+          <p>Teléfono:</p>
+          <input type="text" placeholder="" name="" id="TELEFONO-m" class="form-control" disabled>
+          <p>Habitación:</p>
+          <input type="text" placeholder="" name="" id="HABITACION-m" class="form-control" disabled>
+          <p>Fecha desde:</p>
+          <input type="text" placeholder="" name="" id="FECHA-m" class="form-control" disabled>
+          <p>Fecha hasta:</p>
+          <input type="text" placeholder="" name="" id="hasta" class="form-control" disabled>
+          <p>Cuántos adultos:</p>
+          <input type="text" placeholder="" name="" id="ADULTO-m" class="form-control" disabled>
+          <p>Cuántos niños</p>
+          <input type="text" placeholder="0" name="" id="NIÑO-m" class="form-control" disabled>
+
+          <div class="contendor-botton">
+            <div class="btn btn-warning" onclick="run(6,5);">Anterior</div>
+            <a class="btn btn-warning btn-reservar" onclick="generarPDF();">Reservar</a>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <!--Fin Formulario de reserva-->
+
+    <!--pRUE-->
+    <div class="fondo-bot">
+    </div>
+
+    <!--Inicio footer-->
+    <footer class="footer">
+      
+      <div class="botones">
+      
+        <div class="footer-logo">
+          <a href="../index.html" class="logo"><img src="../img/logo.png" alt="" class="logo"></a>
+        </div>
+
+        <div class="contacto">
+          <h4>• Contacto:</h4>
+          <p>- Dirección: Partida Paraíso - La Villa Paradís</p>
+          <p>- Correo: support_harmony@email.com</p>
+          <p>- Tel: 0220-444-5657</p>
+        </div>
+
+        <div class="redes">
+          <h4>• Redes Sociales:</h4>
+          <div class="icons">
+            <div class="text">
+              <a href="https://www.instagram.com" target="_blank"><i class="lab la-instagram"></i></a> Instagram
+            </div>
+            <div class="text">
+              <a href="https://www.twitter.com" target="_blank"><i class="lab la-twitter"></i></a> Twitter
+            </div>
+            <div class="text">
+              <a href="https://www.facebook.com" target="_blank"><i class="lab la-facebook"></i></a> Facebook
+            </div>
+          </div>
+        </div>
+
+        <div class="pagos">
+          <h4>• Métodos de pago:</h4>
+          <div class="img-pagos">
+            <div class="text">
+              <img src="../img/american-expres.svg" alt="american-expres"> American Express
+            </div>
+            <div class="text">
+              <img src="../img/mastercard.svg" alt="mastercard"> Mastercard
+            </div>
+            <div class="text"><img src="../img/visa.svg" alt="visa" /> Visa</div>
+          </div>
+        </div>
+
+        <div class="map">
+          <h4>• Vení a Conocernos!</h4>
+          <div id="api">
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=iniciarMap&v=weekly" defer class="mapa"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>
+          Hotel Harmony Residence. All rights reserved, 2023 - Website by Grupo 4
+        </p>
+      </div>
+
+    </footer>
+    <!--Fin footer-->
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>        
+    <script type="text/javascript" src="../js/reserva.js"></script>
+
+  </body>
+
+</html>
